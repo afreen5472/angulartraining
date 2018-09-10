@@ -1,16 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
+import { NgModule } from "@angular/core";
+import { Appcomponent } from "./app.component";
+import { HeaderComponent } from "../header.component";
+import { BrowserModule} from "@angular/platform-browser";
+import { LoginModule } from "./login/login.module";
+import { ShoppingModule } from "./shopping/shopping.module";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    //registration
+    declarations: [Appcomponent, HeaderComponent],
+    bootstrap: [Appcomponent],
+    imports: [BrowserModule, LoginModule, ShoppingModule]
 })
-export class AppModule { }
+export class AppModule {
+    constructor() {
+        console.log("AppModule costructor.");
+    }
+}
