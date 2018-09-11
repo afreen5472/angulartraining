@@ -8,4 +8,5 @@ export class HeaderComponent {
     constructor(){
         console.log("Header Component!!!");
     }
+    appHeading = "Shopping App";
 }
