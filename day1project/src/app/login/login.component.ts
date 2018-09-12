@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../shared/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -13,5 +14,23 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+
+}
+
+@Component({
+  template : "<h2>You have logged Out..</h2>"
+})
+export class SignOutComponent {
+  constructor(private ls:LoginService) {}
+
+  ngOnInit() {
+    this.ls.setIsLoggedIn(false);
+  }
+}
+
+@Component({
+  template: "<h1>Invalid credentials !!</h1>"
+})
+export class ErrorComponent {
 
 }

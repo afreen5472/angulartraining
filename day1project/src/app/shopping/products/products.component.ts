@@ -3,6 +3,7 @@ import { Product } from '../../model/product.model';
 import { ProductService } from '../../shared/services/product.service';
 import { CartService } from '../../shared/services/cart.service';
 import { CartItem } from '../../model/cartitem.model';
+import { error } from 'util';
 
 @Component({
   selector: 'app-products',
@@ -14,7 +15,12 @@ products: Product[] = [];
   constructor(private ps:ProductService, private csp:CartService) { }
 
   ngOnInit() {
-    this.products = this.ps.getProducts();
+    //this.products = this.ps.getProducts();
+    this.ps.getProducts().subscribe(
+      (data) => this.products = data,
+      (error) => console.log("error", error)
+    );
+
   }
 
   addProductsToCart(selProd : Product): void {

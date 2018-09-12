@@ -17,4 +17,14 @@ export class CartitemsComponent implements OnInit {
     this.cartItems = this.cs.getCartItems();
   }
 
+  totalAmount() {
+    let tot = 0;
+    for(let i of this.cartItems) {
+      tot += (i.price * i.quantity);
+    }
+    return tot;
+  }
+  removeFromCart(idx:number) {
+    this.cs.deleteCartItem(idx);
+  }
 }
